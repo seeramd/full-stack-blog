@@ -7,12 +7,6 @@ A full-stack blog application built with React, Node.js, Express, and PostgreSQL
 - **Database**: PostgreSQL
 - **Web Server**: Apache
 
-## Project Structure
-blog/
-├── client/       # React frontend
-├── server/       # Node.js API backend
-└── README.md
-
 ### Prerequisites
 - Node.js
 - PostgreSQL
