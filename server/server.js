@@ -23,7 +23,18 @@ app.get('/api/health', (req, res) => {
 // Get all posts
 app.get('/api/posts', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM blog.posts WHERE published_at IS NOT NULL ORDER BY created_at DESC');
+        const result = await pool.query('SELECT * FROM blog.posts WHERE published_at IS NOT NULL ORDER BY created_at, post_id DESC');
+        res.json(result.rows);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get latest post
+app.get('/api/latest-post', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM blog.posts WHERE published_at IS NOT NULL ORDER BY created_at, post_id DESC LIMIT 2');
         res.json(result.rows);
     } catch (err) {
         console.error('Error:', err);
