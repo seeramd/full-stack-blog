@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 async function getPost(slug) {
   try {
@@ -41,7 +42,9 @@ export default async function BlogPost({ params }) {
           <time>{new Date(post.created_at).toLocaleString()}</time>
         </div>
         <div className="post-content">
-          <p>{post.content}</p>
+          <ReactMarkdown>
+          {post.content}
+          </ReactMarkdown>
         </div>
         <Link href="/blog" className="back-link">← Back to all posts</Link>
       </article>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -17,6 +18,35 @@ export default function Navbar() {
             <Link href="/contact" className="nav-link">Contact</Link>
           </li>
         </ul>
+        <div className="nav-socials">
+          <a 
+            href="https://github.com/yourusername" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="GitHub"
+          >
+            <FaGithub size={24} />
+          </a>
+          <a 
+            href="https://linkedin.com/in/divendra-seeram" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={24} />
+          </a>
+          <a 
+            href="https://www.instagram.com/vinnyseeram/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="Instagram"
+          >
+            <FaInstagram size={24} />
+          </a>
+        </div>
       </div>
     </nav>
   )

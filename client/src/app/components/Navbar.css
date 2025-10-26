@@ -46,3 +46,23 @@
 .nav-link:hover {
   color: #4CAF50;
 }
+
+/* Social icons styling */
+.nav-socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.social-link {
+  color: white;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: #4CAF50;
+}

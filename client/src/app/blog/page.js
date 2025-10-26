@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 async function getPosts() {
   const res = await fetch('http://localhost:3001/api/posts', {
@@ -38,13 +39,17 @@ export default async function BlogList() {
               <Link href={`/blog/${post.slug}`} className="post-link">
                 <h2>{post.title}</h2>
                   {post.content.length > 150 ? (
-                  <p className="post-preview">
-                    {post.content.substring(0, 150) }...
-                  </p>
+                  <div className="post-preview">
+                    <ReactMarkdown>
+                      {String(post.content).substring(0, 150) + '...'}
+                    </ReactMarkdown>
+                  </div>
                   ) : (
-                  <p className="post-preview">
-                  {post.content}
-                  </p>
+                  <div className="post-preview">
+                    <ReactMarkdown>
+                      {String(post.content)}
+                    </ReactMarkdown>
+                  </div>
                   )}
                 <span className="post-date">
                   {new Date(post.created_at).toLocaleDateString()}
