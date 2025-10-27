@@ -20,7 +20,7 @@ export default function Navbar() {
         </ul>
         <div className="nav-socials">
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/seeramd" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
+import { notFound } from 'next/navigation'
 
 async function getPost(slug) {
   try {
@@ -25,13 +26,7 @@ export default async function BlogPost({ params }) {
 
   // Show error if post is null
   if (!post) {
-    return (
-      <div className="page-container">
-        <h1>Post Not Found</h1>
-        <p>The post you&apos;re looking for doesn&apos;t exist or couldn&apos;t be loaded.</p>
-        <Link href="/blog" className="back-link">← Back to all posts</Link>
-      </div>
-    )
+    return notFound()
   }
 
   return (
