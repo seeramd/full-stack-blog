@@ -37,15 +37,6 @@ export default function Navbar() {
           >
             <FaLinkedin size={24} />
           </a>
-          <a 
-            href="https://www.instagram.com/vinnyseeram/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={24} />
-          </a>
         </div>
       </div>
     </nav>

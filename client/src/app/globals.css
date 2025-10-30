@@ -153,8 +153,28 @@ main {
   line-height: 1.8;
 }
 
+.post-content img {
+  max-width: 75%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: auto;
+}
+
 .post-content p {
   margin-bottom: 1em
+}
+
+.post-content pre {
+  overflow-x: auto;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.post-content code {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+	color: green;
 }
 
 .back-link {
