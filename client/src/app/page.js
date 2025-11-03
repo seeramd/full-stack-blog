@@ -19,7 +19,7 @@ export default async function Home() {
 
   return (
     <div className="page-container">
-      <h1>Welcome!</h1>
+      <h1>Welcome</h1>
       <p>
         I&apos;m Divendra Seeram, aka Div, aka Vinny. I&apos;m a New York City based IT guy. I&apos;ve worked as a sysadmin and a DBA. I also moonlight as a stand-up comedian.
       </p>
