@@ -21,14 +21,14 @@ export default async function Home() {
     <div className="page-container">
       <h1>Welcome</h1>
       <p>
-        I&apos;m Divendra Seeram, aka Div, aka Vinny. I&apos;m a New York City based IT guy. I&apos;ve worked as a sysadmin and a DBA. I also moonlight as a stand-up comedian.
+        I&apos;m Divendra Seeram, aka Div, aka Vinny. I&apos;m a New York City based IT guy. I&apos;ve worked as a sysadmin and a DBA/Data Engineer. I also moonlight as a stand-up comedian.
       </p>
       <figure className="welcome-figure">
         <img  src="https://i.postimg.cc/0Nnv6GWY/P1053760.jpg" alt="Divendra Seeram, the writer of this blog, performs stand-up comedy to crowd of people."/>
         <figcaption>This performance took place in Gypsum, CO. PC: Mark Masters</figcaption>
       </figure>
       <p>
-      Right now this blog&apos;s looks and features are sparse, but it&apos;s always under construction. I&apos;ll document major or interesting upgrades in future articles. I&apos;ll also add articles about other subjects I find noteworthy, tech-related or otherwise
+        On this site, I post articles largely detailing my administration and development of this site, and of any other subjects I find noteworthy. If you&apos;d like to learn more about my work or contact me directly, you can check out the links on the top-right of the navbar or head to my Contact page.
       </p>
       <h2>Latest Posts</h2>
       {posts.length === 0 ? (

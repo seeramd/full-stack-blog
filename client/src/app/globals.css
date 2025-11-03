@@ -97,7 +97,7 @@ main {
 }
 
 .post-link h2:hover {
-  color: #4CAF50;
+  color: #B7410E;
 }
 
 .post-link h3 {
@@ -106,7 +106,7 @@ main {
 }
 
 .post-link h3:hover {
-  color: #4CAF50;
+  color: #B7410E;
 }
 
 .post-preview {
@@ -139,7 +139,7 @@ main {
 }
 
 .badge.published {
-  background: #4CAF50;
+  background: #B7410E;
   color: white;
 }
 
