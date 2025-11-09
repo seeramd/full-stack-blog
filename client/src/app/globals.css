@@ -154,7 +154,7 @@ main {
 }
 
 .post-content img {
-  max-width: 75%;
+  width: 75%;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: block;
@@ -201,10 +201,21 @@ main {
 }
 
 .welcome-figure img {
-  width: 50%;
+  width: 70%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .welcome-figure img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .post-content img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .welcome-figure figcaption {
