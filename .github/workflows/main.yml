@@ -34,3 +34,21 @@ jobs:
       - name: build Next.js
         working-directory: ./client
         run: npm run build
+
+      - name: ssh setup
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "|1|o+5Tp931+T9Qqxup5onr/grw3Ps=|SkZNIKMk9h+vdWUfUOfo7fRYMCI= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE/MN8knHNCJCGIxmT78aXQX2MaTs+sG3UiQj5oUDaV" >> ~/.ssh/known_hosts
+      
+      - name: Deploy with rsync
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.env' \
+            --exclude='.next/cache' \
+            ./ ${{ secrets.SERVER_USER }}@${{ secrets.SSH_HOST }}:/home/webmaster/full-stack-blog/ \
+            --dry-run
