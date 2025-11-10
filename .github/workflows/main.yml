@@ -41,6 +41,7 @@ jobs:
           cp -r client artifact/
           cp -r server artifact/
           cp package.json artifact/ 2>/dev/null || true
+          ls -la artifact/client/.next/
       
       - name: Upload artifact
         uses: actions/upload-artifact@v5.0.0
@@ -63,7 +64,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@7.1.0
         with:
-          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/'
+          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/cache/'
           path: ./build/
           remote_path: ${{ secrets.REMOTE_PATH }}
           remote_host: ${{ secrets.SERVER_IP }}
