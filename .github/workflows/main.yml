@@ -33,4 +33,4 @@ jobs:
 
       - name: build Next.js
         working-directory: ./client
-        run: npm ci
+        run: npm run build
