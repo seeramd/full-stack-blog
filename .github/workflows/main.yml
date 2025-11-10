@@ -60,21 +60,13 @@ jobs:
           name: blog-build
           path: ./build
       
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H -p ${{ secrets.SSH_PORT }} ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-      
-      - name: Deploy with rsync
-        run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
-            --exclude='.git' \
-            --exclude='node_modules' \
-            --exclude='.env' \
-            --exclude='.env.local' \
-            --exclude='client/.next/cache' \
-            ./build/ ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/home/webmaster/full-stack-blog/ \
-            --dry-run
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@7.1.0
+        with:
+          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/cache' --dry-run
+          path: ./build
+          remote_path: ${{ secrets.REMOTE_PATH }}
+          remote_host: ${{ secrets.SERVER_IP }}
+          remote_user: ${{ secrets.SERVER_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_port: ${{ secrets.SSH_PORT }}
