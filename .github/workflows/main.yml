@@ -1,0 +1,35 @@
+name: Deploy to webserver
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v5.0.0
+      
+      - name: setup Node.js
+        uses: actions/setup-node@v6.0.0
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: |
+            client/package-lock.json
+            server/package-lock.json
+
+      - name: install client dependencies
+        working-directory: ./client
+        run: npm ci
+
+      - name: install server dependencies
+        working-directory: ./server
+        run: npm ci
+
+      - name: build Next.js
+        working-directory: ./client
