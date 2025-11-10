@@ -49,6 +49,7 @@ jobs:
           name: blog-build
           path: artifact/
           retention-days: 0
+          include-hidden-files: true
         
   deploy:
     runs-on: ubuntu-latest
