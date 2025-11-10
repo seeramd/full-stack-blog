@@ -72,7 +72,7 @@ jobs:
           remote_port: ${{ secrets.SSH_PORT }}
 
       - name: install client dependenceies
-        uses: appleboy/ssh-actions@v1.2.3
+        uses: appleboy/ssh-action@v1.2.3
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
