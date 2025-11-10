@@ -79,6 +79,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            source ~/.nvm/nvm.sh
             cd ${{ secrets.REMOTE_PATH }}/client
             npm ci --omit=dev
 
@@ -90,6 +91,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            source ~/.nvm/nvm.sh
             cd ${{ secrets.REMOTE_PATH }}/server
             npm ci --omit=dev
 
