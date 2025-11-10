@@ -63,10 +63,45 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@7.1.0
         with:
-          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/cache' --dry-run
+          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/cache'
           path: ./build
           remote_path: ${{ secrets.REMOTE_PATH }}
           remote_host: ${{ secrets.SERVER_IP }}
           remote_user: ${{ secrets.SERVER_USER }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
           remote_port: ${{ secrets.SSH_PORT }}
+
+      - name: install client dependenceies
+        uses: appleboy/ssh-actions@v1.2.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.REMOTE_PATH }}/client
+            npm ci --omit=dev
+
+      - name: install server dependenceies
+        uses: appleboy/ssh-actions@v1.2.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.REMOTE_PATH }}/server
+            npm ci --omit=dev
+
+      - name: Restart services
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            sudo systemctl restart blog-frontend.service
+            sudo systemctl restart blog-api.service
+            sudo systemctl status blog-frontend --no-pager
+            sudo systemctl status blog-api --no-pager
