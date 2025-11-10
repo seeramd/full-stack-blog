@@ -50,5 +50,5 @@ jobs:
             --exclude='node_modules' \
             --exclude='.env' \
             --exclude='.next/cache' \
-            ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/webmaster/full-stack-blog/ \
+            ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/webmaster/full-stack-blog/ \
             --dry-run
