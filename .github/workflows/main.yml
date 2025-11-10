@@ -63,7 +63,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@7.1.0
         with:
-          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/cache'
+          switches: -avzr --delete --exclude='.git' --exclude='node_modules' --exclude='.env' --exclude='.env.local' --exclude='client/.next/'
           path: ./build/
           remote_path: ${{ secrets.REMOTE_PATH }}
           remote_host: ${{ secrets.SERVER_IP }}
