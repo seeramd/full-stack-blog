@@ -60,6 +60,7 @@ export default async function Home() {
           ))}
         </ul>
       )}
+      <Link href="/blog" className="back-link">See More Posts</Link>
     </div>
   )
 }
