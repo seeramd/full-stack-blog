@@ -228,3 +228,91 @@ main {
   padding-left: 0;
   list-style-position: inside;
 }
+.markdown-content pre {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid #ddd;
+  max-width: 100%;
+}
+
+.markdown-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9rem;
+  color: #333;
+  white-space: pre;
+}
+
+.markdown-content a {
+  color: #B7410E;
+  text-decoration: underline;
+}
+
+.markdown-content a:hover {
+  color: #D2691E;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-content table thead {
+  background: #f4f4f4;
+  border-bottom: 1px solid black;
+}
+
+.markdown-content table th {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid black;
+  font-weight: 600;
+}
+
+.markdown-content table td {
+  padding: 10px 12px;
+  border: 1px solid black;
+}
+
+.markdown-content table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+.markdown-content table tr:hover {
+  background: #f9f9f9;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .markdown-content table {
+    font-size: 0.9rem;
+  }
+  
+  .markdown-content table th,
+  .markdown-content table td {
+    padding: 8px;
+  }
+}

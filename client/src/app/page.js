@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
+
 async function getLatestPosts() {
   const res = await fetch('http://localhost:3001/api/latest-post', {
     cache: 'no-store'
