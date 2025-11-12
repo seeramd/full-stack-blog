@@ -1,0 +1,9 @@
+.contact-link a {
+  color: #B7410E;
+  text-decoration: underline;
+}
+
+.contact-link a:hover {
+  color: #D2691E;
+}
+

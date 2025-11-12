@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import './markdown.css'
 import { notFound } from 'next/navigation'
 
 async function getPost(slug) {
@@ -36,8 +38,8 @@ export default async function BlogPost({ params }) {
         <div className="post-meta">
           <time>{new Date(post.created_at).toLocaleString()}</time>
         </div>
-        <div className="post-content">
-          <ReactMarkdown>
+        <div className="post-content markdown-content">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {post.content}
           </ReactMarkdown>
         </div>

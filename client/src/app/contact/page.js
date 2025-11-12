@@ -1,9 +1,10 @@
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { CiMail } from "react-icons/ci";
+import './contacts.css'
 
 export default function Contact() {
   return (
-    <div className="page-container">
+    <div className="page-container contact-link">
       <h1>Contact</h1>
       <p>You can find me in NYC, and at:</p>
       <p><CiMail /><span> </span>
